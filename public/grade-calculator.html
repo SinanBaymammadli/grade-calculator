@@ -36,11 +36,12 @@
 			<paper-card>
 			  <div class="card-content">
 
-			  	<form is="iron-form" id="form" method="post" action="/form/handler">
+			  	<form is="iron-form" id="form">
 					<paper-input label="sdi" id="sdi" min="0" max="100" type="number"></paper-input>	
 					<paper-input label="msdf" id="msdf" min="0" max="100" type="number"></paper-input>	
 					<paper-input label="ff" id="ff" min="0" max="100" type="number"></paper-input>
 					<paper-button raised on-tap="submitForm">Submit</paper-button>
+					<paper-button raised onclick="_reset(event)">Reset</paper-button>
 				</form>
 			    	
 			  </div>
@@ -141,6 +142,11 @@
 			  }
 			}
 		});
+
+		function _reset(event) {
+		    var form = Polymer.dom(event).localTarget.parentElement
+		    form.reset();
+		}
 	</script>
 
 </dom-module>
