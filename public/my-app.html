@@ -1,0 +1,46 @@
+<link rel="import" href="bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="my-login.html">
+<link rel="import" href="grade-calculator.html">
+
+<dom-module id="my-app">
+	<style>
+		paper-header-panel{
+			background-color: #2196F3;
+			color: #ffffff;
+		}
+
+		h2{
+			padding: 0 0 0 10px;
+		}
+
+	</style>
+
+	<template>
+		
+		<firebase-app
+			id="firebase"
+			auth-domain="grade-calculator-1a84d.firebaseapp.com"
+			database-url="https://grade-calculator-1a84d.firebaseio.com"
+			api-key="AIzaSyCLXNk4-2RjU9XY_UQL86z7iTbntrzVjMI">
+		</firebase-app>
+
+		<!-- <my-login></my-login> -->
+
+		<paper-header-panel class="flex">
+		    <paper-toolbar>
+		    	<h2>Grade Calculator</h2>
+		    </paper-toolbar>
+		</paper-header-panel>
+
+		<grade-calculator></grade-calculator>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'my-app'
+		});
+	</script>
+
+</dom-module>

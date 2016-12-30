@@ -1,0 +1,147 @@
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+
+<dom-module id="grade-calculator">
+	<style>
+		.view{
+			padding: 10px;
+			background-color: rgb(245, 247, 247);
+			min-height: 100vh;
+			display: flex;
+		}
+
+		paper-card{
+			width: 100%;
+			max-width: 400px;
+			margin: 20px 20px 0 0;
+			max-height: 260px;
+		}
+
+		@media screen and (max-width: 700px) {
+			.view{
+				flex-direction: column;
+			}
+
+			paper-card{
+				margin: 20px 0 0 0;
+			}
+		}
+
+		paper-button{
+			background-color: #2196F3;
+			color: #fff;
+		}
+	</style>
+
+	<template>
+
+		<div class="view">
+			<paper-card>
+			  <div class="card-content">
+
+			  	<form is="iron-form" id="form" method="post" action="/form/handler">
+					<paper-input label="sdi" id="sdi" min="0" max="100" type="number"></paper-input>	
+					<paper-input label="msdf" id="msdf" min="0" max="100" type="number"></paper-input>	
+					<paper-input label="ff" id="ff" min="0" max="100" type="number"></paper-input>
+					<paper-button raised on-tap="submitForm">Submit</paper-button>
+				</form>
+			    	
+			  </div>
+			</paper-card>
+
+			<paper-card>
+			  <div class="card-content">
+
+			  	<p>For A grade: <span id="AgradeResult"></span></p>
+			  	<p>For B grade: <span id="BgradeResult"></span></p>
+			  	<p>For C grade: <span id="CgradeResult"></span></p>
+			  	<p>For D grade: <span id="DgradeResult"></span></p>
+			  	<p>For E grade: <span id="EgradeResult"></span></p>
+			    	
+			  </div>
+			</paper-card>
+		</div>		
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'grade-calculator',
+			properties: {
+				Agrade: String
+			},
+			submitForm: function() {
+			  sdi = this.$.sdi.value;
+			  msdf = this.$.msdf.value;
+			  ff = this.$.ff.value;
+
+			  AgradeResult = this.$.AgradeResult;
+			  BgradeResult = this.$.BgradeResult;
+			  CgradeResult = this.$.CgradeResult;
+			  DgradeResult = this.$.DgradeResult;
+			  EgradeResult = this.$.EgradeResult;
+
+			  Agrade = Math.ceil(2*(91 - (sdi*0.2 + msdf*0.2 + ff*0.1)));
+			  Bgrade = Math.ceil(Agrade - 10*2);
+			  Cgrade = Math.ceil(Bgrade - 10*2);
+			  Dgrade = Math.ceil(Cgrade - 10*2);
+			  Egrade = Math.ceil(Dgrade - 10*2);
+
+			  console.log(Agrade);
+			  console.log(Bgrade);
+			  console.log(Cgrade);
+			  console.log(Dgrade);
+			  console.log(Egrade);
+
+
+			  if (Agrade>100) {
+			  	AgradeResult.textContent = "Come back next semestr.";
+			  } else{
+
+			  	if (Agrade<34) {
+			  		Agrade = 34;
+			  	}
+			  	AgradeResult.textContent = Agrade;
+			  	
+			  }
+
+			  if (Bgrade>100) {
+			  	BgradeResult.textContent = "Nah!";
+			  } else {
+			  	if (Bgrade<34) {
+			  		Bgrade = 34;
+			  	}
+			  	BgradeResult.textContent = Bgrade;
+			  }
+
+			  if (Cgrade>100) {
+			  	CgradeResult.textContent = "Not a chance bro!";
+			  } else{
+			  	if (Cgrade<34) {
+			  		Cgrade = 34;
+			  	}
+			  	CgradeResult.textContent = Cgrade;
+			  }
+
+			  if (Dgrade>100) {
+			  	DgradeResult.textContent = "Oops!";
+			  } else{
+			  	if (Dgrade<34) {
+			  		Dgrade = 34;
+			  	}
+			  	DgradeResult.textContent = Dgrade;
+			  }
+
+			  if (Egrade>100) {
+			  	EgradeResult.textContent = ":'(";
+			  } else{
+			  	if (Egrade<34) {
+			  		Egrade = 34;
+			  	}
+			  	EgradeResult.textContent = Egrade;
+			  }
+			}
+		});
+	</script>
+
+</dom-module>
