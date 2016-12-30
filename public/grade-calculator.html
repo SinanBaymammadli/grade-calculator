@@ -87,11 +87,11 @@
 			  Dgrade = Math.ceil(Cgrade - 10*2);
 			  Egrade = Math.ceil(Dgrade - 10*2);
 
-			  console.log(Agrade);
+			  /*console.log(Agrade);
 			  console.log(Bgrade);
 			  console.log(Cgrade);
 			  console.log(Dgrade);
-			  console.log(Egrade);
+			  console.log(Egrade);*/
 
 
 			  if (Agrade>100) {
@@ -101,7 +101,7 @@
 			  	if (Agrade<34) {
 			  		Agrade = 34;
 			  	}
-			  	AgradeResult.textContent = Agrade;
+			  	AgradeResult.textContent = Agrade + "(min)";
 			  	
 			  }
 
@@ -111,7 +111,7 @@
 			  	if (Bgrade<34) {
 			  		Bgrade = 34;
 			  	}
-			  	BgradeResult.textContent = Bgrade;
+			  	BgradeResult.textContent = Bgrade + "(min)";
 			  }
 
 			  if (Cgrade>100) {
@@ -120,7 +120,7 @@
 			  	if (Cgrade<34) {
 			  		Cgrade = 34;
 			  	}
-			  	CgradeResult.textContent = Cgrade;
+			  	CgradeResult.textContent = Cgrade + "(min)";
 			  }
 
 			  if (Dgrade>100) {
@@ -129,7 +129,7 @@
 			  	if (Dgrade<34) {
 			  		Dgrade = 34;
 			  	}
-			  	DgradeResult.textContent = Dgrade;
+			  	DgradeResult.textContent = Dgrade + "(min)";
 			  }
 
 			  if (Egrade>100) {
@@ -138,7 +138,7 @@
 			  	if (Egrade<34) {
 			  		Egrade = 34;
 			  	}
-			  	EgradeResult.textContent = Egrade;
+			  	EgradeResult.textContent = Egrade + "(min)";
 			  }
 			}
 		});
