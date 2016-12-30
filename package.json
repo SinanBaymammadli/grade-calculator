@@ -1,0 +1,24 @@
+{
+  "name": "grade-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SinanBaymammadli/grade-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SinanBaymammadli/grade-calculator/issues"
+  },
+  "homepage": "https://github.com/SinanBaymammadli/grade-calculator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "path": "^0.12.7",
+    "sw-precache": "^4.2.3"
+  }
+}
